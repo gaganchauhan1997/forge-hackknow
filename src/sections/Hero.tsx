@@ -1,15 +1,7 @@
-import { useEffect, useRef } from "react";
 import { ArrowRight } from "lucide-react";
+import { HeroAnimation } from "@/components/HeroAnimation";
 
 export function Hero() {
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.play().catch(() => {});
-    }
-  }, []);
-
   const scrollToInquiry = () => {
     const el = document.getElementById("inquiry");
     if (el) el.scrollIntoView({ behavior: "smooth" });
@@ -88,22 +80,13 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Right Column - Video */}
-      <div className="relative min-h-[50vh] md:min-h-screen bg-[#1a1a1a] overflow-hidden">
-        <video
-          ref={videoRef}
-          className="absolute inset-0 w-full h-full object-cover"
-          src={import.meta.env.BASE_URL + "hero-video.mp4"}
-          muted
-          loop
-          playsInline
-          autoPlay
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a1a]/60 to-transparent" />
+      {/* Right Column - Animated resume building */}
+      <div className="relative min-h-[50vh] md:min-h-screen overflow-hidden">
+        <HeroAnimation />
         <div className="absolute bottom-8 left-8 right-8">
           <div className="bg-[#F9FF00] border-[3px] border-black p-4 inline-block">
             <span className="font-oswald text-sm font-bold uppercase tracking-widest">
-              NOW ACCEPTING COMMISSIONS — Q2 2026
+              NOW ACCEPTING NEW USERS — Q3 2026
             </span>
           </div>
         </div>
