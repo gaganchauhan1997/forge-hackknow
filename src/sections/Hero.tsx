@@ -22,23 +22,23 @@ export function Hero() {
         <div className="max-w-xl">
           <div className="mb-6">
             <span className="inline-block bg-[#F9FF00] px-3 py-1 font-oswald text-xs font-bold uppercase tracking-widest border-[3px] border-black">
-              Illustration & Design Practice
+              AI Resume Builder & Career Toolkit
             </span>
           </div>
           <h1 className="font-oswald text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold uppercase leading-[0.95] tracking-[-0.03em] mb-8 text-[#1a1a1a]">
-            WE SOLVE COMPLEX COMMUNICATION CHALLENGES THROUGH PURE, UNCOMPLICATED DESIGN
+            LAND YOUR DREAM JOB WITH AI-POWERED RESUME BUILDING
           </h1>
           <p className="font-inter text-sm md:text-base leading-relaxed mb-8 text-[#1a1a1a]/80 max-w-md">
-            Editorial Commission Desk connects magazines, brands, and publishers
-            with independent illustrators and visual strategists. Structured
-            workflows. Bold outcomes.
+            Build beautiful, ATS-optimized resumes, cover letters, and
+            portfolios using AI. Export instantly in professional formats
+            trusted by recruiters.
           </p>
           <div className="flex flex-wrap gap-4">
             <button
               onClick={scrollToInquiry}
               className="btn-brutal btn-brutal-yellow flex items-center gap-2 group"
             >
-              START A COMMISSION
+              CREATE RESUME
               <ArrowRight
                 size={18}
                 className="transition-transform group-hover:translate-x-1"
@@ -51,23 +51,23 @@ export function Hero() {
               }}
               className="btn-brutal btn-brutal-black flex items-center gap-2"
             >
-              VIEW WORK
+              VIEW TEMPLATES
             </button>
           </div>
 
           {/* Stats */}
           <div className="grid grid-cols-3 gap-0 mt-12 border-[3px] border-black">
             <div className="border-r-[3px] border-black px-4 py-4 text-center">
-              <div className="font-oswald text-2xl md:text-3xl font-bold">150+</div>
-              <div className="font-inter text-[10px] uppercase tracking-widest mt-1">Projects</div>
+              <div className="font-oswald text-2xl md:text-3xl font-bold">20+</div>
+              <div className="font-inter text-[10px] uppercase tracking-widest mt-1">Resume Templates</div>
             </div>
             <div className="border-r-[3px] border-black px-4 py-4 text-center">
-              <div className="font-oswald text-2xl md:text-3xl font-bold">48h</div>
-              <div className="font-inter text-[10px] uppercase tracking-widest mt-1">Turnaround</div>
+              <div className="font-oswald text-2xl md:text-3xl font-bold">ATS</div>
+              <div className="font-inter text-[10px] uppercase tracking-widest mt-1">Optimized</div>
             </div>
             <div className="px-4 py-4 text-center">
-              <div className="font-oswald text-2xl md:text-3xl font-bold">12</div>
-              <div className="font-inter text-[10px] uppercase tracking-widest mt-1">Artists</div>
+              <div className="font-oswald text-2xl md:text-3xl font-bold">AI</div>
+              <div className="font-inter text-[10px] uppercase tracking-widest mt-1">Powered</div>
             </div>
           </div>
         </div>

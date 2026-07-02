@@ -20,7 +20,7 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-12">
           <div className="md:col-span-4 border-r-[3px] border-white/10 px-6 md:px-10 py-10">
             <h3 className="font-oswald text-2xl font-bold uppercase tracking-tight mb-4">
-              EDITORIAL COMMISSION DESK
+              FORGE
             </h3>
             <p className="font-inter text-xs text-white/60 leading-relaxed max-w-sm">
               Connecting visionary publishers and brands with the world's most
@@ -91,7 +91,7 @@ export default function Home() {
         </div>
         <div className="border-t border-white/10 px-6 md:px-10 py-4 flex flex-col md:flex-row items-center justify-between gap-2">
           <span className="font-inter text-[10px] text-white/40">
-            &copy; 2026 EDITORIAL COMMISSION DESK. ALL RIGHTS RESERVED.
+            &copy; 2026 FORGE. ALL RIGHTS RESERVED.
           </span>
           <span className="font-inter text-[10px] text-white/40">
             DESIGNED IN NEW YORK

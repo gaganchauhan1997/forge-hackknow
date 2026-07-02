@@ -48,7 +48,7 @@ export function Navigation() {
               to="/"
               className="font-oswald text-xl font-bold tracking-tight-oswald uppercase"
             >
-              EDITORIAL COMMISSION DESK
+              FORGE
             </Link>
           </div>
           <div className="col-span-6 flex">
@@ -95,7 +95,7 @@ export function Navigation() {
             to="/"
             className="font-oswald text-lg font-bold tracking-tight-oswald uppercase"
           >
-            ECD
+            FORGE
           </Link>
           <button onClick={() => setMenuOpen(!menuOpen)} className="p-2">
             {menuOpen ? <X size={24} /> : <Menu size={24} />}
