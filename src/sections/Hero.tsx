@@ -70,6 +70,21 @@ export function Hero() {
               <div className="font-inter text-[10px] uppercase tracking-widest mt-1">Powered</div>
             </div>
           </div>
+
+          <div className="grid grid-cols-3 gap-0 mt-[-3px] border-[3px] border-black">
+            <div className="border-r-[3px] border-black px-4 py-4 text-center">
+              <div className="font-oswald text-2xl md:text-3xl font-bold">17+</div>
+              <div className="font-inter text-[10px] uppercase tracking-widest mt-1">AI Tools</div>
+            </div>
+            <div className="border-r-[3px] border-black px-4 py-4 text-center">
+              <div className="font-oswald text-2xl md:text-3xl font-bold">5</div>
+              <div className="font-inter text-[10px] uppercase tracking-widest mt-1">Categories</div>
+            </div>
+            <div className="px-4 py-4 text-center">
+              <div className="font-oswald text-2xl md:text-3xl font-bold">&lt;2min</div>
+              <div className="font-inter text-[10px] uppercase tracking-widest mt-1">Build Time</div>
+            </div>
+          </div>
         </div>
       </div>
 
