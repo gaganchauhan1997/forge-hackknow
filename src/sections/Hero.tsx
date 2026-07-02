@@ -78,7 +78,7 @@ export function Hero() {
         <video
           ref={videoRef}
           className="absolute inset-0 w-full h-full object-cover"
-          src="/hero-video.mp4"
+          src={import.meta.env.BASE_URL + "hero-video.mp4"}
           muted
           loop
           playsInline

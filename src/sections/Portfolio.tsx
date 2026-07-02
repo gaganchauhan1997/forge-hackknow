@@ -7,7 +7,7 @@ const projects = [
     title: "DE STIJL ISSUE",
     client: "LUXURY MAGAZINE",
     category: "Editorial",
-    image: "/portfolio-1.jpg",
+    image: import.meta.env.BASE_URL + "portfolio-1.jpg",
     size: "tall",
   },
   {
@@ -15,7 +15,7 @@ const projects = [
     title: "DECONSTRUCT FLUX",
     client: "EXPERIMENTAL FORM",
     category: "Brand Identity",
-    image: "/portfolio-2.jpg",
+    image: import.meta.env.BASE_URL + "portfolio-2.jpg",
     size: "tall",
   },
   {
@@ -23,7 +23,7 @@ const projects = [
     title: "STRUCTURAL ELEGANCE",
     client: "VOGUE ITALIA",
     category: "Fashion Illustration",
-    image: "/portfolio-3.jpg",
+    image: import.meta.env.BASE_URL + "portfolio-3.jpg",
     size: "tall",
   },
   {
@@ -31,7 +31,7 @@ const projects = [
     title: "GRID & FORM",
     client: "SWISS DESIGN WEEK",
     category: "Packaging",
-    image: "/portfolio-4.jpg",
+    image: import.meta.env.BASE_URL + "portfolio-4.jpg",
     size: "wide",
   },
   {
@@ -39,7 +39,7 @@ const projects = [
     title: "IMPACT MOTION",
     client: "KINETIC STUDIOS",
     category: "Motion Design",
-    image: "/portfolio-5.jpg",
+    image: import.meta.env.BASE_URL + "portfolio-5.jpg",
     size: "tall",
   },
   {
@@ -47,7 +47,7 @@ const projects = [
     title: "PRISM WILD",
     client: "NATURE PRESS",
     category: "Publishing",
-    image: "/portfolio-6.jpg",
+    image: import.meta.env.BASE_URL + "portfolio-6.jpg",
     size: "tall",
   },
 ];
