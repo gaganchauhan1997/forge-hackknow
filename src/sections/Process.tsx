@@ -95,8 +95,8 @@ export function Process() {
             APPROACH
           </h2>
           <p className="font-inter text-sm leading-relaxed text-[#1a1a1a]/70 mb-8">
-            A structured three-phase workflow designed to deliver exceptional
-            editorial illustration with zero friction.
+            Everything you need to know before using Forge Yahavi. Set up your
+            free AI keys once and unlock every tool.
           </p>
           <div className="flex gap-2">
             {steps.map((_, i) => (
