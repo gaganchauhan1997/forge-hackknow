@@ -6,7 +6,7 @@ const projects = [
     id: 1,
     title: "DE STIJL ISSUE",
     client: "LUXURY MAGAZINE",
-    category: "Editorial",
+    category: "Build",
     image: import.meta.env.BASE_URL + "portfolio-1.jpg",
     size: "tall",
   },
@@ -14,7 +14,7 @@ const projects = [
     id: 2,
     title: "DECONSTRUCT FLUX",
     client: "EXPERIMENTAL FORM",
-    category: "Brand Identity",
+    category: "Analyze",
     image: import.meta.env.BASE_URL + "portfolio-2.jpg",
     size: "tall",
   },
@@ -22,7 +22,7 @@ const projects = [
     id: 3,
     title: "STRUCTURAL ELEGANCE",
     client: "VOGUE ITALIA",
-    category: "Fashion Illustration",
+    category: "Tailor",
     image: import.meta.env.BASE_URL + "portfolio-3.jpg",
     size: "tall",
   },
@@ -38,7 +38,7 @@ const projects = [
     id: 5,
     title: "IMPACT MOTION",
     client: "KINETIC STUDIOS",
-    category: "Motion Design",
+    category: "Outreach",
     image: import.meta.env.BASE_URL + "portfolio-5.jpg",
     size: "tall",
   },
@@ -46,7 +46,7 @@ const projects = [
     id: 6,
     title: "PRISM WILD",
     client: "NATURE PRESS",
-    category: "Publishing",
+    category: "Strategy",
     image: import.meta.env.BASE_URL + "portfolio-6.jpg",
     size: "tall",
   },
@@ -61,10 +61,10 @@ export function Portfolio() {
         <div className="flex items-end justify-between">
           <div>
             <span className="font-oswald text-xs font-bold uppercase tracking-[0.2em] text-[#FF0004] block mb-2">
-              Selected Work
+              Selected Tools
             </span>
             <h2 className="font-oswald text-4xl md:text-6xl font-bold uppercase tracking-[-0.03em]">
-              PORTFOLIO
+              CATEGORIES
             </h2>
           </div>
           <span className="hidden md:block font-oswald text-sm uppercase tracking-widest">

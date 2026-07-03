@@ -86,7 +86,7 @@ export function Hero() {
         <div className="absolute bottom-8 left-8 right-8">
           <div className="bg-[#F9FF00] border-[3px] border-black p-4 inline-block">
             <span className="font-oswald text-sm font-bold uppercase tracking-widest">
-              NOW ACCEPTING NEW USERS — Q3 2026
+              AI RESUME BUILDER
             </span>
           </div>
         </div>

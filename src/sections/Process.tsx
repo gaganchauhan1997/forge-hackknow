@@ -3,15 +3,15 @@ import { useEffect, useRef, useState } from "react";
 const steps = [
   {
     num: "01",
-    title: "BRIEFING",
-    desc: "Define the project scope, deliverables, timeline, and budget. Upload visual references and specify rights usage requirements.",
-    status: "INITIATE",
+    title: "WHY BYOK?",
+    desc: "BYOK (Bring Your Own Key) means you use free API keys from AI providers. This is why Yahavi Forge can be so affordable.",
+    status: "BYOK TUTORIAL",
     color: "yellow",
     details: [
-      "Project type identification",
-      "Deliverable specification",
-      "Budget range selection",
-      "Rights usage agreement",
+      "We don't pay for your AI usage — you use free tiers directly",
+      "Your keys stay in your browser — complete privacy",
+      "No monthly AI fees — just the tool subscription",
+      "Switch providers anytime — never locked in",
     ],
   },
   {
@@ -74,7 +74,7 @@ export function Process() {
         {/* Sticky Left Column */}
         <div className="md:col-span-4 lg:col-span-3 border-r-[3px] border-black md:sticky md:top-0 md:h-screen flex flex-col justify-center px-6 md:px-10 py-12 md:py-0 bg-white">
           <span className="font-oswald text-xs font-bold uppercase tracking-[0.2em] text-[#FF0004] block mb-4">
-            How We Work
+            How Tools Work
           </span>
           <h2 className="font-oswald text-4xl md:text-5xl font-bold uppercase tracking-[-0.03em] leading-[0.95] mb-6">
             OUR
