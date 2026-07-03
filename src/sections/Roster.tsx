@@ -20,26 +20,27 @@ type Module = {
   tokenCost: number; // tokens needed per run — high-cost tools go Busy first
   dummyRatings: number[]; // seed ratings; averaged for display
   realRatings: number[];
+  dummyReviewCount: number; // seed review count shown until real reviews >= threshold
 };
 
 const modules: Module[] = [
-  { id: 1, name: "AI RESUME BUILDER", features: ["ATS", "PDF", "Templates"], purpose: "Create professional ATS-friendly resumes", tokenCost: 8000, dummyRatings: [5, 5, 5, 5, 5], realRatings: [] },
-  { id: 2, name: "BULLET POINT UPGRADER", features: ["STAR", "Metrics", "Action Verbs"], purpose: "Transform weak bullets into impactful achievements", tokenCost: 2000, dummyRatings: [5, 5, 5, 4, 5], realRatings: [] },
-  { id: 3, name: "PORTFOLIO GENERATOR", features: ["Responsive", "React", "Export"], purpose: "Build a professional portfolio website", tokenCost: 12000, dummyRatings: [5, 5, 5, 4, 5], realRatings: [] },
-  { id: 4, name: "CAREER GAP FRAMER", features: ["Honest", "ATS", "Narrative"], purpose: "Explain employment gaps professionally", tokenCost: 3000, dummyRatings: [5, 5, 4, 5, 4.5], realRatings: [] },
-  { id: 5, name: "ACHIEVEMENT FORGE", features: ["Quantification", "Impact", "Results"], purpose: "Generate measurable achievement statements", tokenCost: 3000, dummyRatings: [5, 5, 5, 5, 5], realRatings: [] },
-  { id: 6, name: "ATS CAREER INTELLIGENCE", features: ["ATS Score", "Keywords", "Parsing"], purpose: "Analyze resume ATS compatibility", tokenCost: 6000, dummyRatings: [5, 5, 5, 5, 4.5], realRatings: [] },
-  { id: 7, name: "6-SECOND RECRUITER SCAN", features: ["Recruiter View", "Highlights", "First Impression"], purpose: "Simulate a 6-second resume review", tokenCost: 4000, dummyRatings: [5, 5, 5, 5, 4.5], realRatings: [] },
-  { id: 8, name: "RESUME ROAST", features: ["Expert Feedback", "Weaknesses", "Suggestions"], purpose: "Get brutally honest resume feedback", tokenCost: 60000, dummyRatings: [5, 5, 5, 4, 5], realRatings: [] },
-  { id: 9, name: "JOB TAILORING ENGINE", features: ["JD Match", "ATS", "Optimization"], purpose: "Customize resume for specific job descriptions", tokenCost: 9000, dummyRatings: [5, 5, 5, 5, 5], realRatings: [] },
-  { id: 10, name: "TRUTH-LOCK TAILOR", features: ["Fact Check", "Authentic", "Verification"], purpose: "Ensure resume content stays truthful & credible", tokenCost: 5000, dummyRatings: [5, 5, 5, 4, 5], realRatings: [] },
-  { id: 11, name: "COMPANY TAILOR", features: ["Company Tone", "Keywords", "Personalization"], purpose: "Adapt resume for target companies", tokenCost: 7000, dummyRatings: [5, 5, 5, 5, 4.5], realRatings: [] },
-  { id: 12, name: "COVER LETTER", features: ["Personalized", "ATS", "Professional"], purpose: "Generate tailored cover letters", tokenCost: 4000, dummyRatings: [5, 5, 5, 4, 5], realRatings: [] },
-  { id: 13, name: "RECRUITER HOOK", features: ["LinkedIn", "Email", "Outreach"], purpose: "Create recruiter outreach messages", tokenCost: 55000, dummyRatings: [5, 5, 4, 5, 4.5], realRatings: [] },
-  { id: 14, name: "APPLICATION PACK", features: ["Resume", "Cover Letter", "Portfolio"], purpose: "Generate a complete job application package", tokenCost: 15000, dummyRatings: [5, 5, 5, 5, 5], realRatings: [] },
-  { id: 15, name: "ROLE FIT FINDER", features: ["Skill Match", "Analysis", "Compatibility"], purpose: "Identify the best-fit roles from your profile", tokenCost: 6000, dummyRatings: [5, 5, 5, 5, 4.5], realRatings: [] },
-  { id: 16, name: "APPLICATION OPTIMIZER", features: ["ATS", "Quality", "Readiness"], purpose: "Optimize applications before submission", tokenCost: 5000, dummyRatings: [5, 5, 5, 4, 5], realRatings: [] },
-  { id: 17, name: "INTERVIEW PREP PACK", features: ["Mock Interviews", "Q&A", "Strategy"], purpose: "Prepare confidently for interviews", tokenCost: 10000, dummyRatings: [5, 5, 5, 5, 5], realRatings: [] },
+  { id: 1, name: "AI RESUME BUILDER", features: ["ATS", "PDF", "Templates"], purpose: "Create professional ATS-friendly resumes", tokenCost: 8000, dummyRatings: [5, 5, 5, 5, 5], realRatings: [], dummyReviewCount: 47 },
+  { id: 2, name: "BULLET POINT UPGRADER", features: ["STAR", "Metrics", "Action Verbs"], purpose: "Transform weak bullets into impactful achievements", tokenCost: 2000, dummyRatings: [5, 5, 5, 4, 5], realRatings: [], dummyReviewCount: 32 },
+  { id: 3, name: "PORTFOLIO GENERATOR", features: ["Responsive", "React", "Export"], purpose: "Build a professional portfolio website", tokenCost: 12000, dummyRatings: [5, 5, 5, 4, 5], realRatings: [], dummyReviewCount: 28 },
+  { id: 4, name: "CAREER GAP FRAMER", features: ["Honest", "ATS", "Narrative"], purpose: "Explain employment gaps professionally", tokenCost: 3000, dummyRatings: [5, 5, 4, 5, 4.5], realRatings: [], dummyReviewCount: 19 },
+  { id: 5, name: "ACHIEVEMENT FORGE", features: ["Quantification", "Impact", "Results"], purpose: "Generate measurable achievement statements", tokenCost: 3000, dummyRatings: [5, 5, 5, 5, 5], realRatings: [], dummyReviewCount: 41 },
+  { id: 6, name: "ATS CAREER INTELLIGENCE", features: ["ATS Score", "Keywords", "Parsing"], purpose: "Analyze resume ATS compatibility", tokenCost: 6000, dummyRatings: [5, 5, 5, 5, 4.5], realRatings: [], dummyReviewCount: 36 },
+  { id: 7, name: "6-SECOND RECRUITER SCAN", features: ["Recruiter View", "Highlights", "First Impression"], purpose: "Simulate a 6-second resume review", tokenCost: 4000, dummyRatings: [5, 5, 5, 5, 4.5], realRatings: [], dummyReviewCount: 22 },
+  { id: 8, name: "RESUME ROAST", features: ["Expert Feedback", "Weaknesses", "Suggestions"], purpose: "Get brutally honest resume feedback", tokenCost: 60000, dummyRatings: [5, 5, 5, 4, 5], realRatings: [], dummyReviewCount: 53 },
+  { id: 9, name: "JOB TAILORING ENGINE", features: ["JD Match", "ATS", "Optimization"], purpose: "Customize resume for specific job descriptions", tokenCost: 9000, dummyRatings: [5, 5, 5, 5, 5], realRatings: [], dummyReviewCount: 44 },
+  { id: 10, name: "TRUTH-LOCK TAILOR", features: ["Fact Check", "Authentic", "Verification"], purpose: "Ensure resume content stays truthful & credible", tokenCost: 5000, dummyRatings: [5, 5, 5, 4, 5], realRatings: [], dummyReviewCount: 17 },
+  { id: 11, name: "COMPANY TAILOR", features: ["Company Tone", "Keywords", "Personalization"], purpose: "Adapt resume for target companies", tokenCost: 7000, dummyRatings: [5, 5, 5, 5, 4.5], realRatings: [], dummyReviewCount: 25 },
+  { id: 12, name: "COVER LETTER", features: ["Personalized", "ATS", "Professional"], purpose: "Generate tailored cover letters", tokenCost: 4000, dummyRatings: [5, 5, 5, 4, 5], realRatings: [], dummyReviewCount: 38 },
+  { id: 13, name: "RECRUITER HOOK", features: ["LinkedIn", "Email", "Outreach"], purpose: "Create recruiter outreach messages", tokenCost: 55000, dummyRatings: [5, 5, 4, 5, 4.5], realRatings: [], dummyReviewCount: 14 },
+  { id: 14, name: "APPLICATION PACK", features: ["Resume", "Cover Letter", "Portfolio"], purpose: "Generate a complete job application package", tokenCost: 15000, dummyRatings: [5, 5, 5, 5, 5], realRatings: [], dummyReviewCount: 31 },
+  { id: 15, name: "ROLE FIT FINDER", features: ["Skill Match", "Analysis", "Compatibility"], purpose: "Identify the best-fit roles from your profile", tokenCost: 6000, dummyRatings: [5, 5, 5, 5, 4.5], realRatings: [], dummyReviewCount: 20 },
+  { id: 16, name: "APPLICATION OPTIMIZER", features: ["ATS", "Quality", "Readiness"], purpose: "Optimize applications before submission", tokenCost: 5000, dummyRatings: [5, 5, 5, 4, 5], realRatings: [], dummyReviewCount: 26 },
+  { id: 17, name: "INTERVIEW PREP PACK", features: ["Mock Interviews", "Q&A", "Strategy"], purpose: "Prepare confidently for interviews", tokenCost: 10000, dummyRatings: [5, 5, 5, 5, 5], realRatings: [], dummyReviewCount: 35 },
 ];
 
 function getRating(m: Module): number {
@@ -47,6 +48,12 @@ function getRating(m: Module): number {
     m.realRatings.length >= REAL_REVIEW_THRESHOLD ? m.realRatings : m.dummyRatings;
   const avg = ratings.reduce((a, b) => a + b, 0) / ratings.length;
   return Math.round(avg * 10) / 10;
+}
+
+function getReviewCount(m: Module): number {
+  return m.realRatings.length >= REAL_REVIEW_THRESHOLD
+    ? m.realRatings.length
+    : m.dummyReviewCount;
 }
 
 function isAvailable(m: Module, tokensLeft: number): boolean {
@@ -126,6 +133,7 @@ export function Roster() {
           {/* Table Rows */}
           {modules.map((m, i) => {
             const rating = getRating(m);
+            const reviewCount = getReviewCount(m);
             const available = isAvailable(m, tokensLeft);
             return (
               <div
@@ -159,6 +167,9 @@ export function Roster() {
                   <Stars rating={rating} />
                   <span className="font-inter text-sm font-medium">
                     {rating.toFixed(1)}/5
+                  </span>
+                  <span className="font-inter text-xs text-[#1a1a1a]/50">
+                    ({reviewCount})
                   </span>
                 </div>
                 <div className="col-span-2 px-4 py-4 border-l-[3px] border-black flex items-center">
