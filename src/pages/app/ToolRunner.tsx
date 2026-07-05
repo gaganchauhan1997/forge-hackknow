@@ -100,8 +100,8 @@ export default function ToolRunner() {
   if (!tool) {
     return (
       <div className="p-8 text-center">
-        <h1 className="font-oswald text-2xl font-bold mb-2">Tool Not Found</h1>
-        <Link to="/app" className="font-inter text-sm text-[#FF0004] hover:underline">
+        <h1 className="font-oswald text-2xl font-bold mb-2 text-white">Tool Not Found</h1>
+        <Link to="/app" className="font-inter text-sm text-[#F9FF00] hover:underline">
           ← Back to Dashboard
         </Link>
       </div>
@@ -111,10 +111,10 @@ export default function ToolRunner() {
   if (isLocked) {
     return (
       <div className="p-8 max-w-xl mx-auto text-center">
-        <div className="bg-white border-2 border-[#1a1a1a]/10 p-8">
-          <Lock size={48} className="mx-auto text-[#1a1a1a]/20 mb-4" />
-          <h1 className="font-oswald text-2xl font-bold mb-2">{tool.title}</h1>
-          <p className="font-inter text-sm text-[#1a1a1a]/60 mb-6">
+        <div className="bg-[#2a2a2a] border border-white/10 p-8">
+          <Lock size={48} className="mx-auto text-white/20 mb-4" />
+          <h1 className="font-oswald text-2xl font-bold mb-2 text-white">{tool.title}</h1>
+          <p className="font-inter text-sm text-white/50 mb-6">
             This tool requires a {plan === "free" ? "Pro or Premium" : "Premium"} plan.
           </p>
           <Link
@@ -132,15 +132,15 @@ export default function ToolRunner() {
     <div className="p-4 md:p-6 lg:p-8 pb-24 md:pb-8 max-w-4xl mx-auto">
       {/* Header */}
       <div className="flex items-center gap-3 mb-6">
-        <Link to="/app" className="text-[#1a1a1a]/50 hover:text-[#1a1a1a]">
+        <Link to="/app" className="text-white/40 hover:text-white">
           <ArrowLeft size={18} />
         </Link>
         <div>
           <div className="flex items-center gap-2">
             <span className="text-xl">{tool.icon}</span>
-            <h1 className="font-oswald text-xl md:text-2xl font-bold">{tool.title}</h1>
+            <h1 className="font-oswald text-xl md:text-2xl font-bold text-white">{tool.title}</h1>
           </div>
-          <p className="font-inter text-xs text-[#1a1a1a]/60 mt-0.5">{tool.subtitle}</p>
+          <p className="font-inter text-xs text-white/50 mt-0.5">{tool.subtitle}</p>
         </div>
       </div>
 
@@ -151,10 +151,10 @@ export default function ToolRunner() {
             <button
               key={opt.value}
               onClick={() => handleChipChange(opt.value)}
-              className={`px-3 py-1.5 text-xs font-oswald font-bold uppercase tracking-wider border-2 transition-colors ${
+              className={`px-3 py-1.5 text-xs font-oswald font-bold uppercase tracking-wider border transition-colors ${
                 selectedChip === opt.value
-                  ? "bg-[#1a1a1a] text-white border-[#1a1a1a]"
-                  : "bg-white text-[#1a1a1a] border-[#1a1a1a]/20 hover:border-[#F9FF00]"
+                  ? "bg-[#F9FF00] text-[#1a1a1a] border-[#F9FF00]"
+                  : "bg-transparent text-white/60 border-white/20 hover:border-[#F9FF00] hover:text-white"
               }`}
             >
               {opt.label}
@@ -167,7 +167,7 @@ export default function ToolRunner() {
       <div className="space-y-4 mb-6">
         {tool.inputs.map((inp) => (
           <div key={inp.id}>
-            <label className="block font-oswald text-xs font-bold uppercase tracking-wider mb-1.5">
+            <label className="block font-oswald text-xs font-bold uppercase tracking-wider mb-1.5 text-white/80">
               {inp.label}
               {inp.required && <span className="text-[#FF0004] ml-1">*</span>}
             </label>
@@ -175,7 +175,7 @@ export default function ToolRunner() {
               <select
                 value={inputs[inp.id] || inp.options[0]?.value || ""}
                 onChange={(e) => handleInputChange(inp.id, e.target.value)}
-                className="w-full border-2 border-[#1a1a1a]/20 px-3 py-2 font-inter text-sm bg-white focus:border-[#F9FF00] outline-none"
+                className="w-full border border-white/20 bg-[#2a2a2a] text-white px-3 py-2 font-inter text-sm focus:border-[#F9FF00] outline-none"
               >
                 {inp.options.map((opt) => (
                   <option key={opt.value} value={opt.value}>
@@ -189,7 +189,7 @@ export default function ToolRunner() {
                 onChange={(e) => handleInputChange(inp.id, e.target.value)}
                 placeholder={inp.placeholder}
                 rows={inp.rows}
-                className="w-full border-2 border-[#1a1a1a]/20 px-3 py-2 font-inter text-sm resize-vertical focus:border-[#F9FF00] outline-none"
+                className="w-full border border-white/20 bg-[#2a2a2a] text-white px-3 py-2 font-inter text-sm resize-vertical focus:border-[#F9FF00] outline-none placeholder:text-white/30"
               />
             ) : (
               <input
@@ -197,7 +197,7 @@ export default function ToolRunner() {
                 value={inputs[inp.id] || ""}
                 onChange={(e) => handleInputChange(inp.id, e.target.value)}
                 placeholder={inp.placeholder}
-                className="w-full border-2 border-[#1a1a1a]/20 px-3 py-2 font-inter text-sm focus:border-[#F9FF00] outline-none"
+                className="w-full border border-white/20 bg-[#2a2a2a] text-white px-3 py-2 font-inter text-sm focus:border-[#F9FF00] outline-none placeholder:text-white/30"
               />
             )}
           </div>
@@ -222,7 +222,7 @@ export default function ToolRunner() {
         </button>
         <button
           onClick={handleClear}
-          className="px-4 py-2.5 font-oswald text-xs font-bold uppercase border-2 border-[#1a1a1a]/20 hover:border-[#FF0004] transition-colors"
+          className="px-4 py-2.5 font-oswald text-xs font-bold uppercase border border-white/20 text-white/60 hover:border-[#FF0004] hover:text-[#FF0004] transition-colors"
         >
           Clear
         </button>
@@ -230,23 +230,23 @@ export default function ToolRunner() {
 
       {/* Error */}
       {error && (
-        <div className="bg-red-50 border-2 border-[#FF0004]/30 p-4 mb-6">
+        <div className="bg-[#FF0004]/10 border border-[#FF0004]/30 p-4 mb-6">
           <pre className="font-inter text-xs text-[#FF0004] whitespace-pre-wrap">{error}</pre>
         </div>
       )}
 
       {/* Output */}
       {output && (
-        <div className="bg-white border-2 border-[#1a1a1a]/10">
-          <div className="flex items-center justify-between px-4 py-2 border-b-2 border-[#1a1a1a]/10 bg-[#faf6e9]">
-            <span className="font-oswald text-xs font-bold uppercase tracking-wider">Output</span>
+        <div className="bg-[#2a2a2a] border border-white/10">
+          <div className="flex items-center justify-between px-4 py-2 border-b border-white/10 bg-[#1a1a1a]">
+            <span className="font-oswald text-xs font-bold uppercase tracking-wider text-[#F9FF00]">Output</span>
             <div className="flex items-center gap-2">
               {provider && (
-                <span className="text-[9px] font-inter text-[#1a1a1a]/40">via {provider}</span>
+                <span className="text-[9px] font-inter text-white/30">via {provider}</span>
               )}
               <button
                 onClick={handleCopy}
-                className="flex items-center gap-1 px-2 py-1 text-[10px] font-oswald font-bold uppercase border border-[#1a1a1a]/20 hover:bg-[#F9FF00] transition-colors"
+                className="flex items-center gap-1 px-2 py-1 text-[10px] font-oswald font-bold uppercase border border-white/20 text-white/60 hover:bg-[#F9FF00] hover:text-[#1a1a1a] transition-colors"
               >
                 {copied ? <Check size={12} /> : <Copy size={12} />}
                 {copied ? "Copied" : "Copy"}
@@ -262,12 +262,12 @@ export default function ToolRunner() {
             />
           ) : (
             <div
-              className="p-4 font-inter text-sm leading-relaxed prose prose-sm max-w-none
-                [&_h1]:font-oswald [&_h1]:text-lg [&_h1]:font-bold [&_h1]:mt-4 [&_h1]:mb-2
-                [&_h2]:font-oswald [&_h2]:text-base [&_h2]:font-bold [&_h2]:mt-3 [&_h2]:mb-1.5
-                [&_h3]:font-oswald [&_h3]:text-sm [&_h3]:font-bold [&_h3]:mt-2 [&_h3]:mb-1
-                [&_strong]:text-[#1a1a1a] [&_code]:bg-[#f5f5f5] [&_code]:px-1 [&_code]:py-0.5 [&_code]:text-xs
-                [&_li]:ml-4 [&_hr]:border-[#1a1a1a]/10 [&_hr]:my-3"
+              className="p-4 font-inter text-sm leading-relaxed text-white/90 prose prose-invert prose-sm max-w-none
+                [&_h1]:font-oswald [&_h1]:text-lg [&_h1]:font-bold [&_h1]:mt-4 [&_h1]:mb-2 [&_h1]:text-white
+                [&_h2]:font-oswald [&_h2]:text-base [&_h2]:font-bold [&_h2]:mt-3 [&_h2]:mb-1.5 [&_h2]:text-white
+                [&_h3]:font-oswald [&_h3]:text-sm [&_h3]:font-bold [&_h3]:mt-2 [&_h3]:mb-1 [&_h3]:text-white
+                [&_strong]:text-white [&_code]:bg-white/10 [&_code]:px-1 [&_code]:py-0.5 [&_code]:text-xs [&_code]:text-[#F9FF00]
+                [&_li]:ml-4 [&_hr]:border-white/10 [&_hr]:my-3"
               dangerouslySetInnerHTML={{ __html: mdToHtml(output) }}
             />
           )}

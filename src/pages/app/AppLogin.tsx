@@ -17,23 +17,23 @@ export default function AppLogin() {
   };
 
   return (
-    <div className="min-h-screen bg-[#faf6e9] flex items-center justify-center p-4">
+    <div className="min-h-screen bg-[#1a1a1a] flex items-center justify-center p-4">
       <div className="w-full max-w-md">
-        <div className="bg-white border-2 border-[#1a1a1a]">
-          <div className="bg-[#1a1a1a] text-white px-6 py-5">
+        <div className="bg-[#2a2a2a] border border-white/10">
+          <div className="bg-[#111] px-6 py-5 border-b border-white/10">
             <span className="font-oswald text-xs font-bold uppercase tracking-[0.2em] text-[#F9FF00] block mb-2">
               Forge Yahavi
             </span>
-            <h1 className="font-oswald text-2xl font-bold uppercase">LOG IN</h1>
+            <h1 className="font-oswald text-2xl font-bold uppercase text-white">LOG IN</h1>
           </div>
 
           <div className="px-6 py-6 space-y-4">
-            <p className="font-inter text-sm text-[#1a1a1a]/70">
+            <p className="font-inter text-sm text-white/50">
               Sign in to access your AI resume tools, saved drafts, and career dashboard.
             </p>
 
             <div>
-              <label className="block font-oswald text-xs font-bold uppercase tracking-wider mb-1">
+              <label className="block font-oswald text-xs font-bold uppercase tracking-wider mb-1 text-white/80">
                 Your Name *
               </label>
               <input
@@ -41,12 +41,12 @@ export default function AppLogin() {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="e.g. Gagan Chauhan"
-                className="w-full border-2 border-[#1a1a1a]/20 px-3 py-2 font-inter text-sm focus:border-[#F9FF00] outline-none"
+                className="w-full border border-white/20 bg-[#1a1a1a] text-white px-3 py-2 font-inter text-sm focus:border-[#F9FF00] outline-none placeholder:text-white/30"
               />
             </div>
 
             <div>
-              <label className="block font-oswald text-xs font-bold uppercase tracking-wider mb-1">
+              <label className="block font-oswald text-xs font-bold uppercase tracking-wider mb-1 text-white/80">
                 Email (optional)
               </label>
               <input
@@ -54,12 +54,12 @@ export default function AppLogin() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="you@example.com"
-                className="w-full border-2 border-[#1a1a1a]/20 px-3 py-2 font-inter text-sm focus:border-[#F9FF00] outline-none"
+                className="w-full border border-white/20 bg-[#1a1a1a] text-white px-3 py-2 font-inter text-sm focus:border-[#F9FF00] outline-none placeholder:text-white/30"
               />
             </div>
 
             <div>
-              <label className="block font-oswald text-xs font-bold uppercase tracking-wider mb-1">
+              <label className="block font-oswald text-xs font-bold uppercase tracking-wider mb-1 text-white/80">
                 Select Plan
               </label>
               <div className="flex gap-2">
@@ -67,10 +67,10 @@ export default function AppLogin() {
                   <button
                     key={p}
                     onClick={() => setPlan(p)}
-                    className={`flex-1 py-2 font-oswald text-xs font-bold uppercase border-2 transition-colors ${
+                    className={`flex-1 py-2 font-oswald text-xs font-bold uppercase border transition-colors ${
                       plan === p
-                        ? "bg-[#1a1a1a] text-white border-[#1a1a1a]"
-                        : "border-[#1a1a1a]/20 hover:border-[#F9FF00]"
+                        ? "bg-[#F9FF00] text-[#1a1a1a] border-[#F9FF00]"
+                        : "border-white/20 text-white/60 hover:border-[#F9FF00]"
                     }`}
                   >
                     {p === "free" ? "FREE" : p === "pro" ? "PRO ₹199" : "PREMIUM ₹599"}
@@ -91,15 +91,15 @@ export default function AppLogin() {
         </div>
 
         <div className="grid grid-cols-3 gap-0 mt-3">
-          <div className="h-3 bg-[#F9FF00] border-2 border-[#1a1a1a]" />
-          <div className="h-3 bg-[#FF0004] border-2 border-[#1a1a1a]" />
-          <div className="h-3 bg-[#1a1a1a] border-2 border-[#1a1a1a]" />
+          <div className="h-3 bg-[#F9FF00]" />
+          <div className="h-3 bg-[#FF0004]" />
+          <div className="h-3 bg-white" />
         </div>
 
         <div className="text-center mt-4">
           <button
             onClick={() => navigate("/")}
-            className="font-inter text-xs text-[#1a1a1a]/50 hover:text-[#1a1a1a] flex items-center gap-1 mx-auto"
+            className="font-inter text-xs text-white/40 hover:text-[#F9FF00] flex items-center gap-1 mx-auto"
           >
             <ArrowLeft size={12} /> Back to Landing Page
           </button>
