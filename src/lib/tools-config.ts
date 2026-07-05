@@ -397,7 +397,7 @@ export const CATEGORIES = [
 ];
 
 export const PLAN_TOOLS = {
-  free: ["builder", "bullet-upgrader", "portfolio", "gap", "quick-achievement"],
+  free: ["builder", "bullet-upgrader", "portfolio", "gap", "quick-achievement", "ats"],
   pro: [
     "builder", "bullet-upgrader", "portfolio", "gap", "quick-achievement",
     "ats", "scan-6sec", "roast", "tailor-jd", "truth-lock", "company-tailor", "cover-letter",
