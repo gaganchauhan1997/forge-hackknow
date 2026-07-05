@@ -53,8 +53,8 @@ export default function AppYahavi() {
   return (
     <div className="flex flex-col h-full">
       {/* Header */}
-      <div className="flex items-center gap-3 px-4 py-3 border-b border-white/10 bg-[#111]">
-        <div className="w-10 h-10 bg-[#F9FF00] flex items-center justify-center text-xl text-[#1a1a1a]" style={{ borderRadius: "50%" }}>
+      <div className="flex items-center gap-3 px-4 py-3 border-b-2 border-[#1a1a1a] bg-[#1a1a1a]">
+        <div className="w-10 h-10 bg-[#F9FF00] flex items-center justify-center text-xl text-[#1a1a1a] border-2 border-[#1a1a1a]" style={{ borderRadius: "50%" }}>
           🤖
         </div>
         <div>
@@ -64,20 +64,20 @@ export default function AppYahavi() {
       </div>
 
       {/* Messages */}
-      <div className="flex-1 overflow-y-auto p-4 space-y-4 pb-24 md:pb-4">
+      <div className="flex-1 overflow-y-auto p-4 space-y-4 pb-24 md:pb-4 bg-[#faf6e9]">
         {messages.length === 0 && (
           <div className="text-center py-12">
             <div className="text-4xl mb-3">🤖</div>
-            <h2 className="font-oswald text-lg font-bold mb-2 text-white">Hi{user.name ? `, ${user.name}` : ""}! I'm Yahavi AI</h2>
-            <p className="font-inter text-sm text-white/50 mb-6">
+            <h2 className="font-oswald text-lg font-bold mb-2 text-[#1a1a1a]">Hi{user.name ? `, ${user.name}` : ""}! I'm Yahavi AI</h2>
+            <p className="font-inter text-sm text-[#1a1a1a]/60 mb-6">
               Your AI career assistant. Ask me anything about resumes, jobs, or career strategy.
             </p>
 
             {!hasKeys && (
-              <div className="bg-[#F9FF00]/10 border border-[#F9FF00]/30 p-4 max-w-md mx-auto mb-6">
-                <p className="font-inter text-xs text-white/60">
+              <div className="bg-[#F9FF00] border-2 border-[#1a1a1a] p-4 max-w-md mx-auto mb-6">
+                <p className="font-inter text-xs text-[#1a1a1a]">
                   ⚠️ No API keys configured. Add at least one key in{" "}
-                  <Link to="/app/settings" className="text-[#F9FF00] underline">
+                  <Link to="/app/settings" className="text-[#1a1a1a] font-bold underline">
                     Settings → API Keys
                   </Link>{" "}
                   to chat.
@@ -97,7 +97,7 @@ export default function AppYahavi() {
                   onClick={() => {
                     setInput(q);
                   }}
-                  className="text-left p-3 border border-white/10 hover:border-[#F9FF00] transition-colors font-inter text-xs text-white/60 bg-[#2a2a2a]"
+                  className="text-left p-3 border-2 border-[#1a1a1a] hover:bg-[#F9FF00] transition-colors font-inter text-xs text-[#1a1a1a] bg-white"
                 >
                   {q}
                 </button>
@@ -109,21 +109,21 @@ export default function AppYahavi() {
         {messages.map((msg, i) => (
           <div key={i} className={`flex gap-3 ${msg.role === "user" ? "justify-end" : ""}`}>
             {msg.role === "assistant" && (
-              <div className="w-8 h-8 bg-[#F9FF00] flex items-center justify-center shrink-0 mt-1 text-[#1a1a1a]" style={{ borderRadius: "50%" }}>
+              <div className="w-8 h-8 bg-[#F9FF00] flex items-center justify-center shrink-0 mt-1 text-[#1a1a1a] border-2 border-[#1a1a1a]" style={{ borderRadius: "50%" }}>
                 <Bot size={16} />
               </div>
             )}
             <div
-              className={`max-w-[75%] p-3 font-inter text-sm whitespace-pre-wrap ${
+              className={`max-w-[75%] p-3 font-inter text-sm whitespace-pre-wrap border-2 ${
                 msg.role === "user"
-                  ? "bg-[#F9FF00] text-[#1a1a1a]"
-                  : "bg-[#2a2a2a] border border-white/10 text-white/90"
+                  ? "bg-[#F9FF00] text-[#1a1a1a] border-[#1a1a1a]"
+                  : "bg-white text-[#1a1a1a] border-[#1a1a1a]"
               }`}
             >
               {msg.content}
             </div>
             {msg.role === "user" && (
-              <div className="w-8 h-8 bg-[#F9FF00] text-[#1a1a1a] flex items-center justify-center shrink-0 mt-1" style={{ borderRadius: "50%" }}>
+              <div className="w-8 h-8 bg-[#1a1a1a] text-[#F9FF00] flex items-center justify-center shrink-0 mt-1 border-2 border-[#1a1a1a]" style={{ borderRadius: "50%" }}>
                 <User size={14} />
               </div>
             )}
@@ -132,18 +132,18 @@ export default function AppYahavi() {
 
         {loading && (
           <div className="flex gap-3">
-            <div className="w-8 h-8 bg-[#F9FF00] flex items-center justify-center shrink-0 text-[#1a1a1a]" style={{ borderRadius: "50%" }}>
+            <div className="w-8 h-8 bg-[#F9FF00] flex items-center justify-center shrink-0 text-[#1a1a1a] border-2 border-[#1a1a1a]" style={{ borderRadius: "50%" }}>
               <Bot size={16} />
             </div>
-            <div className="bg-[#2a2a2a] border border-white/10 p-3">
-              <Loader2 size={16} className="animate-spin text-[#F9FF00]" />
+            <div className="bg-white border-2 border-[#1a1a1a] p-3">
+              <Loader2 size={16} className="animate-spin text-[#1a1a1a]" />
             </div>
           </div>
         )}
       </div>
 
       {/* Input */}
-      <div className="sticky bottom-16 md:bottom-0 bg-[#111] border-t border-white/10 p-3">
+      <div className="sticky bottom-16 md:bottom-0 bg-white border-t-2 border-[#1a1a1a] p-3">
         <div className="flex gap-2 max-w-3xl mx-auto">
           <input
             type="text"
@@ -151,12 +151,12 @@ export default function AppYahavi() {
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && handleSend()}
             placeholder="Ask Yahavi AI anything..."
-            className="flex-1 border border-white/20 bg-[#2a2a2a] text-white px-3 py-2 font-inter text-sm focus:border-[#F9FF00] outline-none placeholder:text-white/30"
+            className="flex-1 border-2 border-[#1a1a1a] px-3 py-2 font-inter text-sm focus:border-[#F9FF00] outline-none placeholder:text-[#1a1a1a]/30"
           />
           <button
             onClick={handleSend}
             disabled={!input.trim() || loading}
-            className="bg-[#F9FF00] text-[#1a1a1a] px-4 py-2 hover:bg-[#e6e600] transition-colors disabled:opacity-50"
+            className="bg-[#F9FF00] text-[#1a1a1a] px-4 py-2 border-2 border-[#1a1a1a] hover:bg-[#e6e600] transition-colors disabled:opacity-50"
           >
             <Send size={18} />
           </button>

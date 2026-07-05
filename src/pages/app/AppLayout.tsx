@@ -99,7 +99,7 @@ function SidebarContent({
                       onClick={onNavigate}
                       className={`flex items-center gap-3 px-4 py-2 text-xs transition-colors ${
                         location.pathname === `/app/tool/${id}`
-                          ? "bg-[#F9FF00]/20 text-[#F9FF00] font-bold"
+                          ? "bg-[#F9FF00]/30 text-[#F9FF00] font-bold"
                           : "text-white/60 hover:bg-white/5 hover:text-white"
                       }`}
                     >
@@ -127,18 +127,18 @@ function SidebarContent({
       </div>
 
       {loadUser().plan === "free" && (
-        <div className="p-4 m-3 bg-[#F9FF00]/10 border-2 border-[#F9FF00]/40">
+        <div className="p-4 m-3 border-2 border-[#F9FF00] bg-[#F9FF00]">
           <div className="flex items-center gap-2 mb-1">
-            <Crown size={16} className="text-[#F9FF00]" />
-            <span className="font-oswald text-xs font-bold uppercase text-white">Upgrade to Premium</span>
+            <Crown size={16} className="text-[#1a1a1a]" />
+            <span className="font-oswald text-xs font-bold uppercase text-[#1a1a1a]">Upgrade to Premium</span>
           </div>
-          <p className="text-[10px] text-white/50 mb-2 font-inter">
+          <p className="text-[10px] text-[#1a1a1a]/60 mb-2 font-inter">
             Unlock 5 more powerful tools
           </p>
           <Link
             to="/app/plan"
             onClick={onNavigate}
-            className="block text-center bg-[#F9FF00] text-[#1a1a1a] px-3 py-1.5 text-xs font-oswald font-bold uppercase hover:bg-[#e6e600] transition-colors"
+            className="block text-center bg-[#1a1a1a] text-[#F9FF00] px-3 py-1.5 text-xs font-oswald font-bold uppercase hover:bg-[#333] transition-colors"
           >
             Upgrade Now →
           </Link>
@@ -154,10 +154,9 @@ export default function AppLayout() {
   const user = loadUser();
 
   return (
-    <div className="min-h-screen bg-[#1a1a1a] flex flex-col text-white">
-      {/* Top Bar */}
-      <header className="sticky top-0 z-50 bg-[#111] border-b border-white/10 flex items-center h-14 px-4 gap-3">
-        {/* Logo */}
+    <div className="min-h-screen bg-[#faf6e9] flex flex-col">
+      {/* Top Bar — dark like landing page header */}
+      <header className="sticky top-0 z-50 bg-[#1a1a1a] border-b-2 border-[#1a1a1a] flex items-center h-14 px-4 gap-3">
         <Link to="/app" className="flex items-center gap-2 shrink-0">
           <div className="w-7 h-7 bg-[#F9FF00] flex items-center justify-center font-oswald font-black text-sm text-[#1a1a1a]">
             F
@@ -167,7 +166,6 @@ export default function AppLayout() {
           </span>
         </Link>
 
-        {/* Sidebar toggle (desktop) */}
         <button
           onClick={() => setSidebarOpen(!sidebarOpen)}
           className="hidden md:flex w-7 h-7 items-center justify-center border border-white/20 hover:bg-white/10 transition-colors text-white/60"
@@ -175,7 +173,6 @@ export default function AppLayout() {
           <ChevronLeft size={14} />
         </button>
 
-        {/* Mobile hamburger */}
         <button
           onClick={() => setSidebarOpen(true)}
           className="md:hidden w-8 h-8 flex items-center justify-center text-white/70"
@@ -183,8 +180,7 @@ export default function AppLayout() {
           <Menu size={20} />
         </button>
 
-        {/* Search */}
-        <div className="flex-1 max-w-lg mx-auto hidden md:flex items-center gap-2 bg-white/10 px-3 py-1.5 border border-white/10">
+        <div className="flex-1 max-w-lg mx-auto hidden md:flex items-center gap-2 bg-white/10 px-3 py-1.5 border border-white/20">
           <Search size={14} className="text-white/40" />
           <input
             type="text"
@@ -195,7 +191,6 @@ export default function AppLayout() {
         </div>
 
         <div className="ml-auto flex items-center gap-2">
-          {/* Upgrade */}
           <Link
             to="/app/plan"
             className="hidden sm:flex items-center gap-1.5 bg-[#F9FF00] text-[#1a1a1a] px-3 py-1.5 font-oswald text-xs font-bold uppercase hover:bg-[#e6e600] transition-colors"
@@ -204,7 +199,6 @@ export default function AppLayout() {
             Upgrade Plan
           </Link>
 
-          {/* Bell */}
           <button className="relative w-8 h-8 flex items-center justify-center text-white/60 hover:text-white transition-colors">
             <Bell size={18} />
             <span className="absolute -top-0.5 -right-0.5 w-4 h-4 bg-[#FF0004] text-white text-[9px] font-bold flex items-center justify-center" style={{ borderRadius: "50%" }}>
@@ -212,7 +206,6 @@ export default function AppLayout() {
             </span>
           </button>
 
-          {/* User Avatar */}
           {user.loggedIn ? (
             <Link to="/app/settings" className="w-8 h-8 bg-[#F9FF00] text-[#1a1a1a] flex items-center justify-center font-oswald text-sm font-bold" style={{ borderRadius: "50%" }}>
               {(user.name || "U")[0].toUpperCase()}
@@ -226,9 +219,9 @@ export default function AppLayout() {
       </header>
 
       <div className="flex flex-1 overflow-hidden">
-        {/* Desktop Sidebar */}
+        {/* Desktop Sidebar — dark */}
         <aside
-          className={`hidden md:flex flex-col bg-[#111] border-r border-white/10 transition-all duration-200 shrink-0 ${
+          className={`hidden md:flex flex-col bg-[#1a1a1a] border-r-2 border-[#1a1a1a] transition-all duration-200 shrink-0 ${
             sidebarCollapsed ? "w-16" : "w-60"
           }`}
           style={{ height: "calc(100vh - 56px)", position: "sticky", top: 56 }}
@@ -236,15 +229,15 @@ export default function AppLayout() {
           <SidebarContent collapsed={sidebarCollapsed} />
         </aside>
 
-        {/* Mobile Sidebar Overlay */}
+        {/* Mobile Sidebar Overlay — dark */}
         {sidebarOpen && (
           <>
             <div
               className="md:hidden fixed inset-0 bg-black/60 z-40"
               onClick={() => setSidebarOpen(false)}
             />
-            <div className="md:hidden fixed inset-y-0 left-0 w-[280px] bg-[#111] z-50 flex flex-col shadow-2xl">
-              <div className="flex items-center justify-between px-4 py-3 border-b border-white/10">
+            <div className="md:hidden fixed inset-y-0 left-0 w-[280px] bg-[#1a1a1a] z-50 flex flex-col shadow-2xl">
+              <div className="flex items-center justify-between px-4 py-3 border-b-2 border-[#333]">
                 <div className="flex items-center gap-2">
                   <div className="w-7 h-7 bg-[#F9FF00] flex items-center justify-center font-oswald font-black text-sm text-[#1a1a1a]">
                     F
@@ -262,14 +255,14 @@ export default function AppLayout() {
           </>
         )}
 
-        {/* Main Content */}
-        <main className="flex-1 overflow-y-auto" style={{ height: "calc(100vh - 56px)" }}>
+        {/* Main Content — cream bg like landing page */}
+        <main className="flex-1 overflow-y-auto bg-[#faf6e9]" style={{ height: "calc(100vh - 56px)" }}>
           <Outlet />
         </main>
       </div>
 
-      {/* Mobile Bottom Nav */}
-      <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-[#111] border-t border-white/10 z-30 flex items-center justify-around h-16 px-2">
+      {/* Mobile Bottom Nav — dark */}
+      <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-[#1a1a1a] border-t-2 border-[#1a1a1a] z-30 flex items-center justify-around h-16 px-2">
         <BottomNavItem to="/app" icon={<Home size={20} />} label="Dashboard" />
         <BottomNavItem to="/app/resumes" icon={<FileText size={20} />} label="My Resumes" />
         <BottomNavItem to="/app/yahavi" icon={<Bot size={22} />} label="Yahavi AI" center />
