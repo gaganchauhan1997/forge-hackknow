@@ -4,7 +4,7 @@ export function HeroAnimation() {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(249,255,0,0.22),transparent_32%),radial-gradient(circle_at_80%_70%,rgba(255,0,4,0.1),transparent_28%)]" />
       <div className="relative w-full h-full aspect-video md:aspect-auto md:min-h-full">
         <video
-          className="absolute inset-0 h-full w-full object-contain"
+          className="absolute inset-0 h-full w-full object-cover object-center"
           autoPlay
           muted
           loop
