@@ -29,7 +29,7 @@ export function Navigation() {
   };
 
   const desktopTabs = [
-    { label: "DASHBOARD", href: "/dashboard" },
+    { label: "DASHBOARD", href: "/app" },
     { label: "AI TOOLS", action: () => scrollToSection("portfolio"), badge: "NEW" },
     { label: "MY RESUMES", action: () => scrollToSection("roster") },
     { label: "MY PLAN", action: () => scrollToSection("pricing") },
@@ -38,7 +38,7 @@ export function Navigation() {
   ];
 
   const mobileTabs = [
-    { label: "DASHBOARD", href: "/dashboard", active: location.pathname === "/dashboard" },
+    { label: "DASHBOARD", href: "/app", active: location.pathname.startsWith("/app") },
     { label: "AI TOOLS", action: () => scrollToSection("portfolio"), badge: "NEW" },
     { label: "MY RESUMES", action: () => scrollToSection("roster") },
     { label: "MY PLAN", action: () => scrollToSection("pricing") },
@@ -136,13 +136,13 @@ export function Navigation() {
           ) : (
             <div className="flex items-center gap-2">
               <Link
-                to="/login"
+                to="/app/login"
                 className="font-oswald text-xs font-semibold uppercase tracking-wide text-white/80 hover:text-white transition-colors px-3 py-1.5"
               >
                 LOG IN
               </Link>
               <Link
-                to="/login"
+                to="/app/login"
                 className="flex items-center gap-1.5 bg-[#F9FF00] text-[#1a1a1a] font-oswald text-xs font-bold uppercase tracking-wide px-3 py-1.5 rounded hover:bg-[#e6eb00] transition-colors"
               >
                 SIGN UP
@@ -268,13 +268,13 @@ export function Navigation() {
               ) : (
                 <div className="flex flex-col gap-3">
                   <Link
-                    to="/login"
+                    to="/app/login"
                     className="w-full bg-[#F9FF00] text-[#1a1a1a] font-oswald text-sm font-bold uppercase tracking-wide py-3 rounded text-center hover:bg-[#e6eb00] transition-colors"
                   >
                     SIGN UP
                   </Link>
                   <Link
-                    to="/login"
+                    to="/app/login"
                     className="w-full border border-white/30 text-white font-oswald text-sm font-bold uppercase tracking-wide py-3 rounded text-center hover:bg-white/10 transition-colors"
                   >
                     LOG IN
