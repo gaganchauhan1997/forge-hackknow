@@ -116,6 +116,7 @@ export interface SavedResume {
   atsScore: number;
   editedAt: string;
   content: string;
+  color?: string;
 }
 
 export function loadResumes(): SavedResume[] {

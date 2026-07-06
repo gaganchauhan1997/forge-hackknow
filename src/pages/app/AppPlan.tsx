@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { loadUser, saveUser } from "@/lib/store";
-import { PLAN_TOOLS } from "@/lib/tools-config";
 import { Check, Crown } from "lucide-react";
 
 const PLANS = [
@@ -83,8 +82,8 @@ export default function AppPlan() {
   return (
     <div className="p-4 md:p-6 lg:p-8 pb-24 md:pb-8">
       <div className="text-center mb-8">
-        <h1 className="font-oswald text-2xl md:text-3xl font-bold text-[#1a1a1a] uppercase">Choose Your Plan</h1>
-        <p className="font-inter text-sm text-[#1a1a1a]/60 mt-2">
+        <h1 className="font-oswald text-2xl md:text-3xl font-bold text-[#000000] uppercase">Choose Your Plan</h1>
+        <p className="font-inter text-sm text-[#000000]/60 mt-2">
           BYOK (Bring Your Own Key) — only pay for the tool subscription, not AI usage.
         </p>
       </div>
@@ -93,32 +92,32 @@ export default function AppPlan() {
         {PLANS.map((plan) => (
           <div
             key={plan.id}
-            className={`bg-white border-2 flex flex-col ${
+            className={`bg-[#F5F0E8] border-2 flex flex-col ${
               plan.featured
-                ? "border-[#1a1a1a] shadow-[4px_4px_0_#F9FF00]"
-                : "border-[#1a1a1a]"
-            } ${currentPlan === plan.id ? "ring-2 ring-[#F9FF00]" : ""}`}
+                ? "border-[#000000]"
+                : "border-[#000000]"
+            } ${currentPlan === plan.id ? "ring-2 ring-[#D4FF3D]" : ""}`}
           >
             {plan.featured && (
-              <div className="bg-[#F9FF00] text-[#1a1a1a] text-center py-1 font-oswald text-[10px] font-bold uppercase tracking-wider border-b-2 border-[#1a1a1a]">
+              <div className="bg-[#D4FF3D] text-[#000000] text-center py-1 font-oswald text-[10px] font-bold uppercase tracking-wider border-b-2 border-[#000000]">
                 Most Popular
               </div>
             )}
             <div className="p-5 flex-1 flex flex-col">
-              <h3 className="font-oswald text-sm font-bold uppercase text-[#1a1a1a]">{plan.label}</h3>
+              <h3 className="font-oswald text-sm font-bold uppercase text-[#000000]">{plan.label}</h3>
               <div className="mt-2 mb-3">
-                <span className="font-oswald text-3xl font-bold text-[#1a1a1a]">{plan.price}</span>
+                <span className="font-oswald text-3xl font-bold text-[#000000]">{plan.price}</span>
                 {plan.period && (
-                  <span className="font-inter text-xs text-[#1a1a1a]/50">{plan.period}</span>
+                  <span className="font-inter text-xs text-[#000000]/50">{plan.period}</span>
                 )}
               </div>
-              <p className="font-inter text-[10px] text-[#1a1a1a]/60 mb-4">{plan.sub}</p>
+              <p className="font-inter text-[10px] text-[#000000]/60 mb-4">{plan.sub}</p>
 
               <div className="flex-1 space-y-2 mb-4">
                 {plan.features.map((f) => (
                   <div key={f} className="flex items-start gap-2">
-                    <Check size={12} className="text-[#1a1a1a] mt-0.5 shrink-0" />
-                    <span className="font-inter text-[11px] text-[#1a1a1a]">{f}</span>
+                    <Check size={12} className="text-[#000000] mt-0.5 shrink-0" />
+                    <span className="font-inter text-[11px] text-[#000000]">{f}</span>
                   </div>
                 ))}
               </div>
@@ -126,12 +125,12 @@ export default function AppPlan() {
               <button
                 onClick={() => handleSelectPlan(plan.id)}
                 disabled={currentPlan === plan.id}
-                className={`w-full py-2.5 font-oswald font-bold uppercase text-xs border-2 border-[#1a1a1a] transition-colors ${
+                className={`w-full py-2.5 font-oswald font-bold uppercase text-xs border-2 border-[#000000] transition-colors ${
                   currentPlan === plan.id
-                    ? "bg-[#1a1a1a] text-[#F9FF00] cursor-default"
+                    ? "bg-[#000000] text-[#D4FF3D] cursor-default"
                     : plan.featured
-                    ? "bg-[#F9FF00] text-[#1a1a1a] hover:bg-[#e6e600]"
-                    : "bg-white text-[#1a1a1a] hover:bg-[#F9FF00]"
+                    ? "bg-[#D4FF3D] text-[#000000] hover:bg-[#BFFF00]"
+                    : "bg-[#F5F0E8] text-[#000000] hover:bg-[#D4FF3D]"
                 }`}
               >
                 {currentPlan === plan.id ? (

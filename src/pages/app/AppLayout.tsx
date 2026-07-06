@@ -28,10 +28,8 @@ const SIDEBAR_TOOL_ICONS: Record<string, string> = {
 };
 
 function SidebarContent({
-  collapsed,
   onNavigate,
 }: {
-  collapsed: boolean;
   onNavigate?: () => void;
 }) {
   const location = useLocation();
@@ -51,14 +49,14 @@ function SidebarContent({
       onClick={onNavigate}
       className={`flex items-center gap-3 px-4 py-2.5 text-sm font-medium transition-colors ${
         isActive(to)
-          ? "bg-[#F9FF00] text-[#1a1a1a] font-bold"
-          : "text-white/70 hover:bg-white/10"
+          ? "bg-[#D4FF3D] text-[#000000] font-bold"
+          : "text-white/70 hover:bg-[#F5F0E8]/10"
       }`}
     >
       <span className="w-6 h-6 flex items-center justify-center shrink-0">{icon}</span>
       <span className="font-oswald uppercase tracking-wide text-xs">{label}</span>
       {badge && (
-        <span className="ml-auto text-[10px] bg-[#F9FF00] text-[#1a1a1a] px-1.5 py-0.5 font-bold uppercase">
+        <span className="ml-auto text-[10px] bg-[#D4FF3D] text-[#000000] px-1.5 py-0.5 font-bold uppercase">
           {badge}
         </span>
       )}
@@ -78,9 +76,9 @@ function SidebarContent({
             <div key={cat.id}>
               <button
                 onClick={() => toggleCategory(cat.id)}
-                className="w-full flex items-center gap-2 px-4 py-2.5 mt-1 hover:bg-white/10 transition-colors text-white/80"
+                className="w-full flex items-center gap-2 px-4 py-2.5 mt-1 hover:bg-[#F5F0E8]/10 transition-colors text-white/80"
               >
-                <span className="w-6 h-6 flex items-center justify-center bg-[#F9FF00] text-[#1a1a1a] text-xs font-bold shrink-0" style={{ borderRadius: "50%" }}>
+                <span className="w-6 h-6 flex items-center justify-center bg-[#D4FF3D] text-[#000000] text-xs font-bold shrink-0">
                   {cat.num}
                 </span>
                 <span className="font-oswald text-xs font-bold uppercase tracking-wider">
@@ -99,14 +97,14 @@ function SidebarContent({
                       onClick={onNavigate}
                       className={`flex items-center gap-3 px-4 py-2 text-xs transition-colors ${
                         location.pathname === `/app/tool/${id}`
-                          ? "bg-[#F9FF00]/30 text-[#F9FF00] font-bold"
-                          : "text-white/60 hover:bg-white/5 hover:text-white"
+                          ? "bg-[#D4FF3D]/30 text-[#D4FF3D] font-bold"
+                          : "text-white/60 hover:bg-[#F5F0E8]/5 hover:text-white"
                       }`}
                     >
                       <span className="text-base">{SIDEBAR_TOOL_ICONS[id] || tool.icon}</span>
                       <span className="font-inter">{tool.title}</span>
                       {id === "ats" && (
-                        <span className="ml-auto text-[9px] bg-[#F9FF00] text-[#1a1a1a] px-1 py-0.5 font-bold">
+                        <span className="ml-auto text-[9px] bg-[#D4FF3D] text-[#000000] px-1 py-0.5 font-bold">
                           Free
                         </span>
                       )}
@@ -127,18 +125,18 @@ function SidebarContent({
       </div>
 
       {loadUser().plan === "free" && (
-        <div className="p-4 m-3 border-2 border-[#F9FF00] bg-[#F9FF00]">
+        <div className="p-4 m-3 border-2 border-[#D4FF3D] bg-[#D4FF3D]">
           <div className="flex items-center gap-2 mb-1">
-            <Crown size={16} className="text-[#1a1a1a]" />
-            <span className="font-oswald text-xs font-bold uppercase text-[#1a1a1a]">Upgrade to Premium</span>
+            <Crown size={16} className="text-[#000000]" />
+            <span className="font-oswald text-xs font-bold uppercase text-[#000000]">Upgrade to Premium</span>
           </div>
-          <p className="text-[10px] text-[#1a1a1a]/60 mb-2 font-inter">
+          <p className="text-[10px] text-[#000000]/60 mb-2 font-inter">
             Unlock 5 more powerful tools
           </p>
           <Link
             to="/app/plan"
             onClick={onNavigate}
-            className="block text-center bg-[#1a1a1a] text-[#F9FF00] px-3 py-1.5 text-xs font-oswald font-bold uppercase hover:bg-[#333] transition-colors"
+            className="block text-center bg-[#000000] text-[#D4FF3D] px-3 py-1.5 text-xs font-oswald font-bold uppercase hover:bg-[#333] transition-colors"
           >
             Upgrade Now →
           </Link>
@@ -154,11 +152,11 @@ export default function AppLayout() {
   const user = loadUser();
 
   return (
-    <div className="min-h-screen bg-[#faf6e9] flex flex-col">
+    <div className="min-h-screen bg-[#F5F0E8] flex flex-col">
       {/* Top Bar — dark like landing page header */}
-      <header className="sticky top-0 z-50 bg-[#1a1a1a] border-b-2 border-[#1a1a1a] flex items-center h-14 px-4 gap-3">
+      <header className="sticky top-0 z-50 bg-[#000000] border-b-2 border-[#000000] flex items-center h-14 px-4 gap-3">
         <Link to="/app" className="flex items-center gap-2 shrink-0">
-          <div className="w-7 h-7 bg-[#F9FF00] flex items-center justify-center font-oswald font-black text-sm text-[#1a1a1a]">
+          <div className="w-7 h-7 bg-[#D4FF3D] flex items-center justify-center font-oswald font-black text-sm text-[#000000]">
             F
           </div>
           <span className="hidden md:block font-oswald text-sm font-bold uppercase tracking-wider text-white">
@@ -168,7 +166,7 @@ export default function AppLayout() {
 
         <button
           onClick={() => setSidebarOpen(!sidebarOpen)}
-          className="hidden md:flex w-7 h-7 items-center justify-center border border-white/20 hover:bg-white/10 transition-colors text-white/60"
+          className="hidden md:flex w-7 h-7 items-center justify-center border border-white/20 hover:bg-[#F5F0E8]/10 transition-colors text-white/60"
         >
           <ChevronLeft size={14} />
         </button>
@@ -180,7 +178,7 @@ export default function AppLayout() {
           <Menu size={20} />
         </button>
 
-        <div className="flex-1 max-w-lg mx-auto hidden md:flex items-center gap-2 bg-white/10 px-3 py-1.5 border border-white/20">
+        <div className="flex-1 max-w-lg mx-auto hidden md:flex items-center gap-2 bg-[#F5F0E8]/10 px-3 py-1.5 border border-white/20">
           <Search size={14} className="text-white/40" />
           <input
             type="text"
@@ -193,7 +191,7 @@ export default function AppLayout() {
         <div className="ml-auto flex items-center gap-2">
           <Link
             to="/app/plan"
-            className="hidden sm:flex items-center gap-1.5 bg-[#F9FF00] text-[#1a1a1a] px-3 py-1.5 font-oswald text-xs font-bold uppercase hover:bg-[#e6e600] transition-colors"
+            className="hidden sm:flex items-center gap-1.5 bg-[#D4FF3D] text-[#000000] px-3 py-1.5 font-oswald text-xs font-bold uppercase hover:bg-[#BFFF00] transition-colors"
           >
             <Crown size={14} />
             Upgrade Plan
@@ -201,17 +199,17 @@ export default function AppLayout() {
 
           <button className="relative w-8 h-8 flex items-center justify-center text-white/60 hover:text-white transition-colors">
             <Bell size={18} />
-            <span className="absolute -top-0.5 -right-0.5 w-4 h-4 bg-[#FF0004] text-white text-[9px] font-bold flex items-center justify-center" style={{ borderRadius: "50%" }}>
+            <span className="absolute -top-0.5 -right-0.5 w-4 h-4 bg-[#FF0000] text-white text-[9px] font-bold flex items-center justify-center">
               3
             </span>
           </button>
 
           {user.loggedIn ? (
-            <Link to="/app/settings" className="w-8 h-8 bg-[#F9FF00] text-[#1a1a1a] flex items-center justify-center font-oswald text-sm font-bold" style={{ borderRadius: "50%" }}>
+            <Link to="/app/settings" className="w-8 h-8 bg-[#D4FF3D] text-[#000000] flex items-center justify-center font-oswald text-sm font-bold">
               {(user.name || "U")[0].toUpperCase()}
             </Link>
           ) : (
-            <Link to="/app/login" className="font-oswald text-xs font-bold uppercase text-[#F9FF00] hover:text-white transition-colors">
+            <Link to="/app/login" className="font-oswald text-xs font-bold uppercase text-[#D4FF3D] hover:text-white transition-colors">
               LOG IN
             </Link>
           )}
@@ -221,12 +219,12 @@ export default function AppLayout() {
       <div className="flex flex-1 overflow-hidden">
         {/* Desktop Sidebar — dark */}
         <aside
-          className={`hidden md:flex flex-col bg-[#1a1a1a] border-r-2 border-[#1a1a1a] transition-all duration-200 shrink-0 ${
+          className={`hidden md:flex flex-col bg-[#000000] border-r-2 border-[#000000] transition-all duration-200 shrink-0 ${
             sidebarCollapsed ? "w-16" : "w-60"
           }`}
           style={{ height: "calc(100vh - 56px)", position: "sticky", top: 56 }}
         >
-          <SidebarContent collapsed={sidebarCollapsed} />
+          <SidebarContent />
         </aside>
 
         {/* Mobile Sidebar Overlay — dark */}
@@ -236,10 +234,10 @@ export default function AppLayout() {
               className="md:hidden fixed inset-0 bg-black/60 z-40"
               onClick={() => setSidebarOpen(false)}
             />
-            <div className="md:hidden fixed inset-y-0 left-0 w-[280px] bg-[#1a1a1a] z-50 flex flex-col shadow-2xl">
+            <div className="md:hidden fixed inset-y-0 left-0 w-[280px] bg-[#000000] z-50 flex flex-col shadow-none">
               <div className="flex items-center justify-between px-4 py-3 border-b-2 border-[#333]">
                 <div className="flex items-center gap-2">
-                  <div className="w-7 h-7 bg-[#F9FF00] flex items-center justify-center font-oswald font-black text-sm text-[#1a1a1a]">
+                  <div className="w-7 h-7 bg-[#D4FF3D] flex items-center justify-center font-oswald font-black text-sm text-[#000000]">
                     F
                   </div>
                   <span className="font-oswald text-sm font-bold uppercase tracking-wider text-white">
@@ -250,19 +248,19 @@ export default function AppLayout() {
                   <X size={20} />
                 </button>
               </div>
-              <SidebarContent collapsed={false} onNavigate={() => setSidebarOpen(false)} />
+              <SidebarContent onNavigate={() => setSidebarOpen(false)} />
             </div>
           </>
         )}
 
         {/* Main Content — cream bg like landing page */}
-        <main className="flex-1 overflow-y-auto bg-[#faf6e9]" style={{ height: "calc(100vh - 56px)" }}>
+        <main className="flex-1 overflow-y-auto bg-[#F5F0E8]" style={{ height: "calc(100vh - 56px)" }}>
           <Outlet />
         </main>
       </div>
 
       {/* Mobile Bottom Nav — dark */}
-      <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-[#1a1a1a] border-t-2 border-[#1a1a1a] z-30 flex items-center justify-around h-16 px-2">
+      <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-[#000000] border-t-2 border-[#000000] z-30 flex items-center justify-around h-16 px-2">
         <BottomNavItem to="/app" icon={<Home size={20} />} label="Dashboard" />
         <BottomNavItem to="/app/resumes" icon={<FileText size={20} />} label="My Resumes" />
         <BottomNavItem to="/app/yahavi" icon={<Bot size={22} />} label="Yahavi AI" center />
@@ -291,11 +289,11 @@ function BottomNavItem({
     return (
       <Link to={to} className="flex flex-col items-center gap-0.5 -mt-4">
         <div className={`w-12 h-12 flex items-center justify-center ${
-          active ? "bg-[#F9FF00]" : "bg-[#F9FF00]/80"
-        } text-[#1a1a1a] shadow-lg`} style={{ borderRadius: "50%" }}>
+          active ? "bg-[#D4FF3D]" : "bg-[#D4FF3D]/80"
+        } text-[#000000] shadow-none`}>
           {icon}
         </div>
-        <span className={`text-[9px] font-oswald uppercase tracking-wide ${active ? "text-[#F9FF00]" : "text-white/40"}`}>
+        <span className={`text-[9px] font-oswald uppercase tracking-wide ${active ? "text-[#D4FF3D]" : "text-white/40"}`}>
           {label}
         </span>
       </Link>
@@ -304,8 +302,8 @@ function BottomNavItem({
 
   return (
     <Link to={to} className="flex flex-col items-center gap-0.5 py-1 px-2">
-      <span className={active ? "text-[#F9FF00]" : "text-white/40"}>{icon}</span>
-      <span className={`text-[9px] font-oswald uppercase tracking-wide ${active ? "text-[#F9FF00] font-bold" : "text-white/40"}`}>
+      <span className={active ? "text-[#D4FF3D]" : "text-white/40"}>{icon}</span>
+      <span className={`text-[9px] font-oswald uppercase tracking-wide ${active ? "text-[#D4FF3D] font-bold" : "text-white/40"}`}>
         {label}
       </span>
     </Link>

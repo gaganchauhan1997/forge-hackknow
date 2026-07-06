@@ -37,43 +37,43 @@ export default function AppSettings() {
   const settingsItems = [
     {
       icon: <User size={20} />,
-      iconBg: "bg-[#F9FF00]",
+      iconBg: "bg-[#D4FF3D]",
       title: "Profile Photo",
       subtitle: "Upload or change your profile photo",
       right: user.photo ? (
-        <img src={user.photo} alt="" className="w-10 h-10 object-cover border-2 border-[#1a1a1a]" style={{ borderRadius: "50%" }} />
+        <img src={user.photo} alt="" className="w-10 h-10 object-cover border-2 border-[#000000]" />
       ) : (
-        <div className="w-10 h-10 bg-[#1a1a1a]/10 flex items-center justify-center border-2 border-[#1a1a1a]" style={{ borderRadius: "50%" }}>
-          <User size={20} className="text-[#1a1a1a]/30" />
+        <div className="w-10 h-10 bg-[#000000]/10 flex items-center justify-center border-2 border-[#000000]">
+          <User size={20} className="text-[#000000]/30" />
         </div>
       ),
       onClick: () => setActiveModal("photo"),
     },
     {
       icon: <User size={20} />,
-      iconBg: "bg-[#F9FF00]",
+      iconBg: "bg-[#D4FF3D]",
       title: "Name",
       subtitle: "View or update your name",
-      right: <span className="font-inter text-sm text-[#1a1a1a]/60">{user.name || "—"}</span>,
+      right: <span className="font-inter text-sm text-[#000000]/60">{user.name || "—"}</span>,
       onClick: () => setActiveModal("name"),
     },
     {
       icon: <Lock size={20} />,
-      iconBg: "bg-[#F9FF00]",
+      iconBg: "bg-[#D4FF3D]",
       title: "Change Password",
       subtitle: "Reset or change your password",
       onClick: () => setActiveModal("password"),
     },
     {
       icon: <Key size={20} />,
-      iconBg: "bg-[#F9FF00]",
+      iconBg: "bg-[#D4FF3D]",
       title: "API Keys",
       subtitle: "Manage your API keys",
       onClick: () => setActiveModal("keys"),
     },
     {
       icon: <GraduationCap size={20} />,
-      iconBg: "bg-[#F9FF00]",
+      iconBg: "bg-[#D4FF3D]",
       title: "Ongoing Chapters of Your Life",
       subtitle: "Add skills, courses, degrees or goals you're currently pursuing",
       badge: "New",
@@ -81,18 +81,18 @@ export default function AppSettings() {
     },
     {
       icon: <BarChart3 size={20} />,
-      iconBg: "bg-[#F9FF00]",
+      iconBg: "bg-[#D4FF3D]",
       title: "API Key Usage",
       subtitle: "View your API key usage and limits",
       onClick: () => setActiveModal("usage"),
     },
     {
       icon: <FileDown size={20} />,
-      iconBg: "bg-[#F9FF00]",
+      iconBg: "bg-[#D4FF3D]",
       title: "History - Export Invoice",
       subtitle: "Download your invoices and payment history",
       actionButton: (
-        <span className="flex items-center gap-1 bg-[#F9FF00] border-2 border-[#1a1a1a] px-2 py-1 text-[10px] font-oswald font-bold uppercase text-[#1a1a1a]">
+        <span className="flex items-center gap-1 bg-[#D4FF3D] border-2 border-[#000000] px-2 py-1 text-[10px] font-oswald font-bold uppercase text-[#000000]">
           <FileDown size={12} /> Download
         </span>
       ),
@@ -100,7 +100,7 @@ export default function AppSettings() {
     },
     {
       icon: <LogOut size={20} />,
-      iconBg: "bg-[#FF0004]",
+      iconBg: "bg-[#FF0000]",
       title: "Logout",
       subtitle: "Sign out from your account",
       onClick: handleLogout,
@@ -113,12 +113,12 @@ export default function AppSettings() {
       <div className="mb-6">
         <button
           onClick={() => navigate(-1)}
-          className="md:hidden flex items-center gap-2 mb-3 text-[#1a1a1a]/60 hover:text-[#1a1a1a]"
+          className="md:hidden flex items-center gap-2 mb-3 text-[#000000]/60 hover:text-[#000000]"
         >
           <ArrowLeft size={18} />
         </button>
-        <h1 className="font-oswald text-2xl md:text-3xl font-bold text-[#1a1a1a] uppercase">Settings</h1>
-        <p className="font-inter text-sm text-[#1a1a1a]/60 mt-1">
+        <h1 className="font-oswald text-2xl md:text-3xl font-bold text-[#000000] uppercase">Settings</h1>
+        <p className="font-inter text-sm text-[#000000]/60 mt-1">
           Manage your account and preferences
         </p>
       </div>
@@ -128,43 +128,43 @@ export default function AppSettings() {
           <button
             key={item.title}
             onClick={item.onClick}
-            className={`bg-white border-2 ${
-              item.danger ? "border-[#FF0004] hover:bg-[#FF0004]/5" : "border-[#1a1a1a] hover:border-[#F9FF00]"
+            className={`bg-[#F5F0E8] border-2 ${
+              item.danger ? "border-[#FF0000] hover:bg-[#FF0000]/5" : "border-[#000000] hover:border-[#D4FF3D]"
             } p-4 flex items-center gap-3 text-left transition-colors w-full`}
           >
-            <div className={`w-10 h-10 ${item.iconBg} flex items-center justify-center shrink-0 text-[#1a1a1a] border-2 border-[#1a1a1a]`} style={{ borderRadius: "8px" }}>
+            <div className={`w-10 h-10 ${item.iconBg} flex items-center justify-center shrink-0 text-[#000000] border-2 border-[#000000]`}>
               {item.icon}
             </div>
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-2">
-                <h3 className="font-oswald text-sm font-bold text-[#1a1a1a]">{item.title}</h3>
+                <h3 className="font-oswald text-sm font-bold text-[#000000]">{item.title}</h3>
                 {item.badge && (
-                  <span className="text-[9px] bg-[#F9FF00] text-[#1a1a1a] px-1.5 py-0.5 font-bold border border-[#1a1a1a]">
+                  <span className="text-[9px] bg-[#D4FF3D] text-[#000000] px-1.5 py-0.5 font-bold border border-[#000000]">
                     {item.badge}
                   </span>
                 )}
               </div>
-              <p className="font-inter text-[11px] text-[#1a1a1a]/50 mt-0.5 truncate">
+              <p className="font-inter text-[11px] text-[#000000]/50 mt-0.5 truncate">
                 {item.subtitle}
               </p>
             </div>
             {item.right && <div className="shrink-0">{item.right}</div>}
             {item.actionButton && <div className="shrink-0">{item.actionButton}</div>}
             {!item.right && !item.actionButton && (
-              <ChevronRight size={16} className="text-[#1a1a1a]/30 shrink-0" />
+              <ChevronRight size={16} className="text-[#000000]/30 shrink-0" />
             )}
           </button>
         ))}
       </div>
 
-      <div className="mt-6 bg-[#F9FF00] border-2 border-[#1a1a1a] p-4 flex items-center justify-center gap-2">
-        <Lock size={14} className="text-[#1a1a1a]" />
-        <span className="font-inter text-xs text-[#1a1a1a]/80 font-bold">
+      <div className="mt-6 bg-[#D4FF3D] border-2 border-[#000000] p-4 flex items-center justify-center gap-2">
+        <Lock size={14} className="text-[#000000]" />
+        <span className="font-inter text-xs text-[#000000]/80 font-bold">
           Your data is 100% secure and private.
         </span>
       </div>
 
-      <p className="text-center font-inter text-[10px] text-[#1a1a1a]/30 mt-4">
+      <p className="text-center font-inter text-[10px] text-[#000000]/30 mt-4">
         App Version 1.0.0
       </p>
 
@@ -188,7 +188,7 @@ export default function AppSettings() {
 
       {activeModal === "photo" && (
         <SettingsModalWrapper title="Profile Photo" onClose={() => setActiveModal(null)}>
-          <p className="font-inter text-sm text-[#1a1a1a]/60 p-4">
+          <p className="font-inter text-sm text-[#000000]/60 p-4">
             Photo upload coming soon. Your profile photo will be stored locally in the browser.
           </p>
         </SettingsModalWrapper>
@@ -196,7 +196,7 @@ export default function AppSettings() {
 
       {activeModal === "password" && (
         <SettingsModalWrapper title="Change Password" onClose={() => setActiveModal(null)}>
-          <p className="font-inter text-sm text-[#1a1a1a]/60 p-4">
+          <p className="font-inter text-sm text-[#000000]/60 p-4">
             Password management coming soon. Currently using local-only auth.
           </p>
         </SettingsModalWrapper>
@@ -204,7 +204,7 @@ export default function AppSettings() {
 
       {activeModal === "chapters" && (
         <SettingsModalWrapper title="Ongoing Chapters" onClose={() => setActiveModal(null)}>
-          <p className="font-inter text-sm text-[#1a1a1a]/60 p-4">
+          <p className="font-inter text-sm text-[#000000]/60 p-4">
             Track your ongoing learning, courses, and goals here. Coming soon.
           </p>
         </SettingsModalWrapper>
@@ -218,7 +218,7 @@ export default function AppSettings() {
 
       {activeModal === "history" && (
         <SettingsModalWrapper title="History & Invoices" onClose={() => setActiveModal(null)}>
-          <p className="font-inter text-sm text-[#1a1a1a]/60 p-4">
+          <p className="font-inter text-sm text-[#000000]/60 p-4">
             No invoices yet. Your payment history will appear here.
           </p>
         </SettingsModalWrapper>
@@ -239,12 +239,12 @@ function SettingsModalWrapper({
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50" onClick={onClose}>
       <div
-        className="bg-white w-full max-w-lg mx-4 max-h-[80vh] overflow-y-auto border-2 border-[#1a1a1a]"
+        className="bg-[#F5F0E8] w-full max-w-lg mx-4 max-h-[80vh] overflow-y-auto border-2 border-[#000000]"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="flex items-center justify-between px-4 py-3 border-b-2 border-[#1a1a1a] bg-[#1a1a1a] text-white">
+        <div className="flex items-center justify-between px-4 py-3 border-b-2 border-[#000000] bg-[#000000] text-white">
           <h2 className="font-oswald text-sm font-bold uppercase tracking-wider">{title}</h2>
-          <button onClick={onClose} className="hover:text-[#F9FF00]">
+          <button onClick={onClose} className="hover:text-[#D4FF3D]">
             <X size={18} />
           </button>
         </div>
@@ -263,11 +263,11 @@ function NameEditor({ name, onSave }: { name: string; onSave: (name: string) => 
         value={value}
         onChange={(e) => setValue(e.target.value)}
         placeholder="Your name"
-        className="w-full border-2 border-[#1a1a1a] px-3 py-2 font-inter text-sm focus:border-[#F9FF00] outline-none"
+        className="w-full border-2 border-[#000000] px-3 py-2 font-inter text-sm focus:border-[#D4FF3D] outline-none"
       />
       <button
         onClick={() => onSave(value)}
-        className="w-full bg-[#F9FF00] text-[#1a1a1a] py-2 font-oswald font-bold uppercase text-sm border-2 border-[#1a1a1a] hover:bg-[#e6e600] transition-colors flex items-center justify-center gap-2"
+        className="w-full bg-[#D4FF3D] text-[#000000] py-2 font-oswald font-bold uppercase text-sm border-2 border-[#000000] hover:bg-[#BFFF00] transition-colors flex items-center justify-center gap-2"
       >
         <Check size={16} /> Save
       </button>
@@ -286,32 +286,32 @@ function ApiKeysEditor() {
 
   return (
     <div className="p-4 space-y-4">
-      <p className="font-inter text-xs text-[#1a1a1a]/60">
+      <p className="font-inter text-xs text-[#000000]/60">
         Bring Your Own Key (BYOK) — paste API keys from free-tier providers below.
         Keys are stored locally in your browser only.
       </p>
       {PROVIDER_ORDER.map((id) => {
         const p = PROVIDERS[id];
         return (
-          <div key={id} className="border-2 border-[#1a1a1a] p-3">
+          <div key={id} className="border-2 border-[#000000] p-3">
             <div className="flex items-center justify-between mb-1">
               <span className="font-oswald text-xs font-bold uppercase">{p.name}</span>
               <a
                 href={p.keyUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[10px] text-[#1a1a1a] font-bold hover:text-[#FF0004] font-inter"
+                className="text-[10px] text-[#000000] font-bold hover:text-[#FF0000] font-inter"
               >
                 Get key →
               </a>
             </div>
-            <p className="font-inter text-[10px] text-[#1a1a1a]/50 mb-2">{p.note}</p>
+            <p className="font-inter text-[10px] text-[#000000]/50 mb-2">{p.note}</p>
             <input
               type="password"
               placeholder={p.keyHint}
               value={(keys as Record<string, string>)[id] || ""}
               onChange={(e) => handleSave(id, e.target.value)}
-              className="w-full border-2 border-[#1a1a1a]/30 px-2 py-1.5 font-mono text-xs focus:border-[#F9FF00] outline-none"
+              className="w-full border-2 border-[#000000]/30 px-2 py-1.5 font-mono text-xs focus:border-[#D4FF3D] outline-none"
             />
           </div>
         );
@@ -327,7 +327,7 @@ function ApiUsageView() {
   return (
     <div className="p-4">
       {activeProviders.length === 0 ? (
-        <p className="font-inter text-sm text-[#1a1a1a]/60">
+        <p className="font-inter text-sm text-[#000000]/60">
           No API keys configured. Add keys in the API Keys section.
         </p>
       ) : (
@@ -335,14 +335,14 @@ function ApiUsageView() {
           {activeProviders.map((id) => {
             const p = PROVIDERS[id];
             return (
-              <div key={id} className="border-2 border-[#1a1a1a] p-3">
+              <div key={id} className="border-2 border-[#000000] p-3">
                 <div className="flex items-center justify-between">
                   <span className="font-oswald text-xs font-bold uppercase">{p.name}</span>
                   <span className="text-[10px] text-green-600 font-bold">● ACTIVE</span>
                 </div>
-                <p className="font-inter text-[10px] text-[#1a1a1a]/50 mt-1">{p.note}</p>
-                <div className="mt-2 w-full h-2 bg-[#1a1a1a]/10 border border-[#1a1a1a]">
-                  <div className="h-full bg-[#F9FF00] w-1/4" />
+                <p className="font-inter text-[10px] text-[#000000]/50 mt-1">{p.note}</p>
+                <div className="mt-2 w-full h-2 bg-[#000000]/10 border border-[#000000]">
+                  <div className="h-full bg-[#D4FF3D] w-1/4" />
                 </div>
               </div>
             );
