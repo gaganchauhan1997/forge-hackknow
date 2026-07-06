@@ -12,26 +12,26 @@
 
 @layer base {
   :root {
-    --color-black: #1a1a1a;
-    --color-yellow: #F9FF00;
-    --color-red: #FF0004;
-    --color-white: #FFFFFF;
+    --color-black: #000000;
+    --color-yellow: #D4FF3D;
+    --color-red: #FF0000;
+    --color-white: #F5F0E8;
 
-    --background: 0 0% 100%;
-    --foreground: 0 0% 10%;
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 10%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 10%;
-    --primary: 60 100% 50%;
-    --primary-foreground: 0 0% 10%;
-    --secondary: 0 0% 96%;
-    --secondary-foreground: 0 0% 10%;
-    --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 40%;
-    --accent: 60 100% 50%;
-    --accent-foreground: 0 0% 10%;
-    --destructive: 359 100% 50%;
+    --background: 36 39% 94%;
+    --foreground: 0 0% 0%;
+    --card: 36 39% 94%;
+    --card-foreground: 0 0% 0%;
+    --popover: 36 39% 94%;
+    --popover-foreground: 0 0% 0%;
+    --primary: 76 100% 62%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 36 39% 94%;
+    --secondary-foreground: 0 0% 0%;
+    --muted: 36 39% 88%;
+    --muted-foreground: 0 0% 0%;
+    --accent: 76 100% 62%;
+    --accent-foreground: 0 0% 0%;
+    --destructive: 0 100% 50%;
     --destructive-foreground: 0 0% 100%;
     --border: 0 0% 10%;
     --input: 0 0% 10%;
@@ -43,6 +43,8 @@
 @layer base {
   * {
     @apply border-border;
+    border-radius: 0 !important;
+    box-shadow: none !important;
   }
   body {
     font-family: "Inter", sans-serif;
@@ -56,6 +58,35 @@
     text-transform: uppercase;
     letter-spacing: -0.02em;
     line-height: 1;
+    color: var(--color-black);
+    font-weight: 700;
+  }
+  button,
+  a[role="button"],
+  input,
+  textarea,
+  select,
+  label,
+  [data-slot="badge"],
+  [data-slot="button"] {
+    font-weight: 700;
+  }
+  button,
+  a[role="button"],
+  [data-slot="button"] {
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+  }
+  input,
+  textarea,
+  select {
+    border: 2px solid var(--color-black);
+    background: #ffffff;
+    color: var(--color-black);
+  }
+  hr {
+    border: 0;
+    border-top: 3px solid var(--color-black);
   }
 }
 
